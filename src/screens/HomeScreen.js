@@ -3,7 +3,13 @@ import { View } from 'react-native'
 
 const HomeScreen = () => {
   return (
-    <View>HomeScreen</View>
+    <View>
+    <Text>Home Screen</Text>
+    <Button
+      title="Go to Category"
+      onPress={() => navigation.navigate('Category')}
+    />
+  </View>
   )
 }
 

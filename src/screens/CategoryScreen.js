@@ -5,6 +5,10 @@ function CategoryScreen() {
   return (
     <View>
       <Text>Category Screen</Text>
+      <Button
+        title="Go to User"
+        onPress={() => navigation.navigate('User')}
+      />
     </View>
   );
 }

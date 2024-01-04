@@ -7,8 +7,8 @@ function UserScreen({ navigation }) {
     <View>
       <Text>User Screen</Text>
       <Button
-        title="Go to Home"
-        onPress={() => navigation.navigate('Home')}
+        title="Go to Wishllist"
+        onPress={() => navigation.navigate('Wishlist')}
       />
     </View>
   );
