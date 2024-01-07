@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Button, StyleSheet } from 'react-native';
 
-function CategoryScreen() {
+function CategoryScreen({ navigation }) {
   return (
     <View>
-      <Text>Category Screen</Text>
+      <Text style={styles.title}>Category Screen</Text>
       <Button
         title="Go to User"
         onPress={() => navigation.navigate('User')}
@@ -14,3 +14,11 @@ function CategoryScreen() {
 }
 
 export default CategoryScreen;
+
+const styles = StyleSheet.create({
+  title: {
+      fontSize: 24,
+      fontWeight: 'bold',
+      color: '#000',
+    }
+});

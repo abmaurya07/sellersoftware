@@ -1,10 +1,10 @@
 import React from 'react'
-import { View } from 'react-native'
+import { Button, StyleSheet, Text, View } from 'react-native'
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   return (
     <View>
-    <Text>Home Screen</Text>
+    <Text styles={styles.title}>Home Screen</Text>
     <Button
       title="Go to Category"
       onPress={() => navigation.navigate('Category')}
@@ -14,3 +14,12 @@ const HomeScreen = () => {
 }
 
 export default HomeScreen
+
+
+const styles = StyleSheet.create({
+  title: {
+      fontSize: 24,
+      fontWeight: 'bold',
+      color: '#000',
+    }
+});

@@ -1,17 +1,25 @@
 // HomeScreen.js
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, StyleSheet } from 'react-native';
 
 function WishlistScreen({ navigation }) {
   return (
     <View>
-      <Text>Wishlist Screen</Text>
+      <Text styles= {styles.title}>Wishlist Screen</Text>
       <Button
-        title="Go to User"
-        onPress={() => navigation.navigate('User')}
+        title="Go to Home"
+        onPress={() => navigation.navigate('Home')}
       />
     </View>
   );
 }
 
 export default WishlistScreen;
+
+const styles = StyleSheet.create({  
+  title: {
+      fontSize: 24, 
+      fontWeight: 'bold',
+      color: '#000',
+  }
+})

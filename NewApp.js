@@ -9,9 +9,24 @@ import { PersistGate } from 'redux-persist/integration/react'
 import ThemeStyle, { appTextStyle } from './src/Theme/Theme'
 import { NativeBaseProvider } from "native-base";
 import AppNavigator from './src/Navigation/AppNavigator.js'
+import SplashScreen from './src/screens/SplashScreen.js'
 
 const ConnectedApp = () => {
+
+  const [isLoading, setIsLoading] = useState(true)
+
+
   
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000); // The splash screen will be displayed for 3 seconds
+  }, []);
+  
+  if (isLoading) {
+    return <SplashScreen />;
+  }
 
   return (
       <Provider store={store}>

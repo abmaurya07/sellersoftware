@@ -6,66 +6,82 @@ import HomeScreen from '../screens/HomeScreen';
 import CategoryScreen from '../screens/CategoryScreen';
 import WishListScreen from '../screens/WishListScreen';
 import UserScreen from '../screens/UserScreen';
-import ThemedIcon from '../components/ThemedIcon';
+import CartScreen from '../screens/CartScreen';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
 const Stack = createNativeStackNavigator();
 
 const Tab = createBottomTabNavigator();
 
-
 const AppNavigator = () => {
-
-
   return (
     <NavigationContainer>
       <Tab.Navigator
-        screenOptions={ ({route}) => ({
+        screenOptions={({route}) => ({
+          headerShown: true,
+          tabBarIcon: ({focused, color}) => {
+            let iconSize = 24; // default icon size
+            switch (route.name) {
+              case 'Home':
+                return (
+                  <Ionicons name="home-outline" color={color} size={iconSize} />
+                );
+              case 'Categories':
+                return (
+                  <Ionicons name="apps-outline" color={color} size={iconSize} />
+                );
+              case 'Wishlist':
+                return (
+                  <Ionicons
+                    name="heart-outline"
+                    color={color}
+                    size={iconSize}
+                  />
+                );
+              case 'Me':
+                return (
+                  <Ionicons
+                    name="person-outline"
+                    color={color}
+                    size={iconSize}
+                  />
+                );
+              case 'Cart':
+                return (
+                  <Ionicons name="cart-outline" color={color} size={iconSize} />
+                );
+              default:
+                return null;
+            }
+          },
 
-           headerShown: false,
-           tabBarIcon: ({focused, color}) => {
-             if (route.name === 'Home') {
-              return (<ThemedIcon iconName="home-outline" color={color} />)
-             } else if (route.name === 'Category') {
-               return (<ThemedIcon iconName="grid-outline" color={color} />)
-             } else if (route.name === 'Wishlist') {
-               return (<ThemedIcon iconName="heart-outline" color={color} />)
-             } else if (route.name === 'User') {
-               return (<ThemedIcon iconName="settings-outline" color={color} />)
-             }
+          tabBarIconStyle: {
+            marginBottom: 0,
+          },
+          tabBarLabelStyle: {
+            fontSize: 10, // Adjust label font size if needed
+            paddingTop: 0,
+          },
 
-           }
-
-        })
-
-        }
-      >
+          tabBarItemStyle: {
+            padding: 4,
+          },
+        })}
+        tabBarOptions={{
+          activeTintColor: 'black',
+          inactiveTintColor: 'grey',
+          labelStyle: {
+            fontWeight: 'bold', // Make label bold
+          },
+        }}>
         <Tab.Screen name="Home" component={HomeScreen} />
-        
-        <Tab.Screen name="Category" component={CategoryScreen} />
+        <Tab.Screen name="Categories" component={CategoryScreen} />
         <Tab.Screen name="Wishlist" component={WishListScreen} />
-        <Tab.Screen name="User" component={UserScreen} />
-     
+        <Tab.Screen name="Cart" component={CartScreen} />
+        <Tab.Screen name="Me" component={UserScreen} />
       </Tab.Navigator>
-      </NavigationContainer>
-
-  )
-
-}
-
-
-
-
-// function AppNavigator() {
-//   return (
-//     <NavigationContainer>
-//       <Stack.Navigator initialRouteName="Home">
-//         <Stack.Screen name="Home" component={HomeScreen} />
-//         <Stack.Screen name="Details" component={DetailsScreen} />
-//       </Stack.Navigator>
-//     </NavigationContainer>
-//   );
-// }
+    </NavigationContainer>
+  );
+};
 
 export default AppNavigator;
-
-
-

@@ -1,6 +1,6 @@
 // HomeScreen.js
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, StyleSheet } from 'react-native';
 
 function UserScreen({ navigation }) {
   return (
@@ -15,3 +15,12 @@ function UserScreen({ navigation }) {
 }
 
 export default UserScreen;
+
+
+const styles = StyleSheet.create({
+  title: {
+      fontSize: 24,
+      fontWeight: 'bold',
+      color: '#000',
+    }
+})
