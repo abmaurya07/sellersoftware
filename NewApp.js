@@ -7,9 +7,8 @@ import { store, persistor } from './src/store'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 import ThemeStyle, { appTextStyle } from './src/Theme/Theme'
-import { NativeBaseProvider, StatusBar } from "native-base";
 import AppNavigator from './src/Navigation/AppNavigator.js'
-import SplashScreen from './src/screens/SplashScreen.js'
+import {SplashScreen} from 'screens'
 
 
 
@@ -33,11 +32,9 @@ const ConnectedApp = () => {
   return (
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
-          <NativeBaseProvider>
             
             
           <AppNavigator />
-          </NativeBaseProvider>
         </PersistGate>
       </Provider>
   )
