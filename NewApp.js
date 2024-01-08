@@ -1,15 +1,17 @@
 import React, {  useEffect, useState } from 'react'
 import NetInfo from '@react-native-community/netinfo'
 
-import { Platform, View, Text } from 'react-native'
+import { Platform, View, Text, useColorScheme } from 'react-native'
 import ImageLoad from './src/utils/ImageLoad.js'
 import { store, persistor } from './src/store'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 import ThemeStyle, { appTextStyle } from './src/Theme/Theme'
-import { NativeBaseProvider } from "native-base";
+import { NativeBaseProvider, StatusBar } from "native-base";
 import AppNavigator from './src/Navigation/AppNavigator.js'
 import SplashScreen from './src/screens/SplashScreen.js'
+
+
 
 const ConnectedApp = () => {
 
@@ -32,6 +34,8 @@ const ConnectedApp = () => {
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <NativeBaseProvider>
+            
+            
           <AppNavigator />
           </NativeBaseProvider>
         </PersistGate>

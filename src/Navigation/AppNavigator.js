@@ -18,7 +18,7 @@ const AppNavigator = () => {
     <NavigationContainer>
       <Tab.Navigator
         screenOptions={({route}) => ({
-          headerShown: true,
+          headerShown: false,
           tabBarIcon: ({focused, color}) => {
             let iconSize = 24; // default icon size
             switch (route.name) {
