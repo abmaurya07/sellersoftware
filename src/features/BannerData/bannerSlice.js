@@ -23,6 +23,7 @@ const bannersSlice = createSlice({
           state.status = 'succeeded';
         })
         .addCase(fetchBanners.rejected, (state, action) => {
+          console.log('action.error', action.error);
           state.status = 'failed';
         });
     }

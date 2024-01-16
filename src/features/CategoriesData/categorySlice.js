@@ -4,7 +4,8 @@ import { appDarkTheme, appLightTheme, appTextStyle } from '../../Theme/Theme';
 
 const initialState = {
     items: [],
-    sortCategory: []
+    sortCategory: [],
+    status: 'idle',
   }
 
 const categorySlice = createSlice({

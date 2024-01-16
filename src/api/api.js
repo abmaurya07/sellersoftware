@@ -1,3 +1,4 @@
+import WooCommerceAPI from 'react-native-woocommerce-api'
 export const api = {
     url: 'https://dummy.sellerssoftware.com', // your site URL do net add slash at the end of the url
     consumerKey: 'ck_20fefc0f8af2a62466bf1113f28542b970ae976d', // Your consumer secret

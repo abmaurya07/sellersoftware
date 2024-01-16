@@ -10,7 +10,7 @@ const styles =  StyleSheet.create({
         color: 'rgb(255,255,255)', // white text
     },
     homeIcon: {
-        color: '#fff', // black icons
+        color: '#fff', // white icons
     },
 
     //Bache hue

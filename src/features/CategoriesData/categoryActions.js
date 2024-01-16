@@ -8,7 +8,7 @@ export const fetchCategories = createAsyncThunk(
       lang: 'en',
       currency: 'INR',
       page: 1,
-      per_page: 50,
+      per_prage: 50,
       status: 'publish'
     })
     return response.data;
