@@ -44,9 +44,9 @@ const renderItem = ({ item }) => (
 {
   status === 'loading'?
   <BannerImageSkeleton /> :
-  1 == 2?
+  status == 'failed'?
   <Text> Failed fetching</Text> :
- true?
+ status === 'success'?
    (
     <>
      <Carousel

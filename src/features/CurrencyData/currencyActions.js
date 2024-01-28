@@ -9,7 +9,7 @@ export const fetchCurrency = createAsyncThunk(
       const response = await fetch(
         `${api.url}/wp-json/api/tc_settings/app_all_currencies`,
       ).then((response) => response.json());
-      console.log('response', response.data);
+      // console.log('response', response.data);
       return response.data;
     },
   );

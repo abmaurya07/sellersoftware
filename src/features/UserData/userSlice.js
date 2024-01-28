@@ -26,7 +26,7 @@ const userSlice = createSlice({
         })
         .addCase(signIn.fulfilled, (state, action) => 
         {
-          console.log('action.payload', action.payload);
+          // console.log('action.payload', action.payload);
           state.data = action.payload.res;
           state.sessionId= action.payload.cookie;
           state.status = 'succeeded';

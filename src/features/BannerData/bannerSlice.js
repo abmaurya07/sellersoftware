@@ -18,12 +18,12 @@ const bannersSlice = createSlice({
         })
         .addCase(fetchBanners.fulfilled, (state, action) => 
         {
-          console.log('action.payload', action.payload);
+          // console.log('action.payload', action.payload);
           state.items = action.payload;
           state.status = 'succeeded';
         })
         .addCase(fetchBanners.rejected, (state, action) => {
-          console.log('action.error', action.error);
+          console.log('Banner Fetching API Error : ', action.error);
           state.status = 'failed';
         });
     }

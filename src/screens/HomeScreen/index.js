@@ -26,15 +26,20 @@ import {fetchCategories} from '../../features/CategoriesData/categoryActions';
 import {getCategories} from '../../features/GetStateData/data';
 
 // Components for rendering UI
-import {HomeScreenHeader, Banner} from './components';
+import 
+{
+  HomeScreenHeader,
+  Banner
+} from './components';
 
 // Temporary imports during development
 import Logo from 'assets/images/Logo.png';
+// import TearCarousel from '../../components/Carousels/Tear';
 
 const HomeScreen = ({navigation}) => {
   const isDarkMode = useColorScheme() === 'dark';
   const Categories = useSelector(getCategories);
-  const [imgSrc, setImgSrc] = useState();
+  const [imgSrc, setImgSrc] = useState(Logo);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchCategories());
@@ -42,7 +47,7 @@ const HomeScreen = ({navigation}) => {
   }, [dispatch]);
 
   const total = [1,2]
-  console.log('Categories --->', Categories.status);
+  // console.log('Categories --->', Categories.status);
 
   return (
     <View style={[homeScreenStyles.container, brandingStyles.container]}>
@@ -54,7 +59,7 @@ const HomeScreen = ({navigation}) => {
 
         <Banner imgSrc={imgSrc} />
     
-   
+    {/* <TearCarousel /> */}
 
       <Text>Abhishek</Text>
     </View>

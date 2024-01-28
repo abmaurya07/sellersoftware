@@ -25,7 +25,7 @@ const appSettingsFromPluginSlice = createSlice({
         })
         .addCase(fetchAppSettingsFromPlugin.fulfilled, (state, action) => 
         {
-          console.log('action.payload', action.payload);
+          // console.log('action.payload', action.payload);
           state.items = action.payload;
           state.newProductDuration = action.payload.new_product_duration;
           state.status = 'succeeded';

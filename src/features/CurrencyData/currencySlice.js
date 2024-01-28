@@ -18,7 +18,7 @@ const currencySlice = createSlice({
         })
         .addCase(fetchCurrency.fulfilled, (state, action) => 
         {
-          console.log('action.payload', action.payload);
+          // console.log('action.payload', action.payload);
           state.items = action.payload; 
           state.status = 'succeeded';
         })

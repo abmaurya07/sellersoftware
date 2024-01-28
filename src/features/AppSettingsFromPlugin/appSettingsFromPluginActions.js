@@ -8,7 +8,7 @@ export const fetchAppSettingsFromPlugin = createAsyncThunk(
     const response = await fetch(
       `${api.url}/wp-json/api/tc_settings/app_all_settings`,
     ).then((response) => response.json());
-    console.log('App Settings From Plugin ->', response.data);
+    // console.log('App Settings From Plugin ->', response.data);
     return response.data;
   },
 );
@@ -45,7 +45,7 @@ export const fetchAboutUsSettingDataFromPlugin = createAsyncThunk(
     const response = await fetch(
       url,
     ).then((response) => response.json());
-    console.log('About Us Settings From Plugin ->', response.data);
+    // console.log('About Us Settings From Plugin ->', response.data);
     return response.data;
   }
 )

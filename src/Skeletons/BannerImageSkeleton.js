@@ -7,7 +7,7 @@ const BannerImageSkeleton = (props) => {
     const WIDTH = Dimensions.get('window').width
     const HEIGHT = Dimensions.get('window').height 
 
-    console.log('WIDHT +++++++++++++____>', WIDTH)
+    // console.log('WIDHT +++++++++++++____>', WIDTH)
 return (
 
 <ContentLoader 
