@@ -2,7 +2,7 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import {HomeScreen} from 'screens'
+import {HomeScreen, HomeScreen2} from 'screens'
 import CategoryScreen from '../screens/CategoryScreen';
 import WishListScreen from '../screens/WishListScreen';
 import UserScreen from '../screens/UserScreen';
@@ -55,7 +55,7 @@ const AppNavigator = () => {
           }
         })}
 >
-        <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen name="Home" component={HomeScreen2} />
         <Tab.Screen name="Categories" component={CategoryScreen} />
         <Tab.Screen name="Wishlist" component={WishListScreen} />
         <Tab.Screen name="Cart" component={CartScreen} />

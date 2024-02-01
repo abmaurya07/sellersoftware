@@ -34,19 +34,13 @@ import
 
 // Temporary imports during development
 import Logo from 'assets/images/Logo.png';
+import CategoryComponent from './components/Caregory';
 // import TearCarousel from '../../components/Carousels/Tear';
 
 const HomeScreen = ({navigation}) => {
   const isDarkMode = useColorScheme() === 'dark';
-  const Categories = useSelector(getCategories);
-  const [imgSrc, setImgSrc] = useState(Logo);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchCategories());
-    setTimeout(() => setImgSrc(Logo), 2000);
-  }, [dispatch]);
 
-  const total = [1,2]
+
   // console.log('Categories --->', Categories.status);
 
   return (
@@ -55,13 +49,13 @@ const HomeScreen = ({navigation}) => {
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={brandingStyles.homeHeader.backgroundColor}
       />
-      <HomeScreenHeader />
 
-        <Banner imgSrc={imgSrc} />
+      <HomeScreenHeader navigation={navigation} />
+
+     
+       <CategoryComponent />
     
-    {/* <TearCarousel /> */}
 
-      <Text>Abhishek</Text>
     </View>
   );
 };

@@ -1,5 +1,10 @@
 // Import Redux Persist and AsyncStorage
-import { persistStore, persistReducer } from 'redux-persist';
+import { persistStore, persistReducer, FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER, } from 'redux-persist';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 // Import your reducers
 import { configureStore } from '@reduxjs/toolkit';
@@ -10,6 +15,7 @@ import productReducer from './features/ProductsData/productsSlice';
 import currencyReducer from './features/CurrencyData/currencySlice';
 import userReducer from './features/UserData/userSlice';
 import appSettingsFromPluginReducer from './features/AppSettingsFromPlugin/appSettingsFromPluginSlice';
+
 // Create a persist config for the reducers
 const bannersPersistConfig = {
   key: 'banners',
@@ -33,7 +39,8 @@ const appConfigPersistConfig = {
 const categoryPersistConfig = {
   key: 'categories',
   storage: AsyncStorage,
-  blacklist: ['categories', 'sortCategory'] // Will not be persisted
+  whitelist: ['items'], // only persist the banners state
+
 }
 
 const productPersistConfig = {
@@ -111,7 +118,14 @@ const store = configureStore({
     currency: persistedCurrencyReducer,
     user: persistedUserReducer,
     appSettingsFromPlugin: persistedAppSettingsFromPluginReducer
-  }
+  },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware(
+    {
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+
 });
 // Create a persistor using the store
 const persistor = persistStore(store);

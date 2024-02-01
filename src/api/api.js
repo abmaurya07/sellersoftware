@@ -6,9 +6,9 @@ export const api = {
 }
 
 export const wooAPI = new WooCommerceAPI({
-    url: api.url.startsWith('https')
+    url: `${api.url.startsWith('https')
       ? api.url
-      : api.url.replace('http', 'https'),
+      : api.url.replace('http', 'https')}`,
     ssl: true,
     consumerKey: api.consumerKey, // Your consumer secret
     consumerSecret: api.consumerSecret, // Your consumer secret

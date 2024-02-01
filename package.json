@@ -22,6 +22,7 @@
     "react": "18.2.0",
     "react-content-loader": "^6.2.1",
     "react-native": "0.73.1",
+    "react-native-blasted-image": "^0.0.13",
     "react-native-easy-content-loader": "^0.3.2",
     "react-native-fast-image": "^8.6.3",
     "react-native-gesture-handler": "^2.14.1",
