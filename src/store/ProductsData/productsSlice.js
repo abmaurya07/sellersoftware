@@ -86,10 +86,23 @@ const productSlice = createSlice({
           state.products.status = 'loading';
         })
         .addCase(fetchProducts.fulfilled, (state, action) => {
-          action.payload.forEach(element => {
-            state.products.items = [...state.products.items, element]
-          })
-          state.products.status = 'succeeded';
+         
+          const Products = action.payload
+          .map(product => ({
+            id: product.id,
+            name: product.name,
+            images: product.images,
+            slug: product.slug,
+            description: product.description,
+            price: product.price,
+            regular_price: product.regular_price,
+            sale_price: product.sale_price
+          }));
+        
+         console.log('Products-> ', Products)
+   
+         state.products.status = 'succeeded';
+         state.products.items = Products
         })
         .addCase(fetchProducts.rejected, (state, action) => {
           state.products.status = 'failed';

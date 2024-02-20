@@ -55,19 +55,22 @@ export const fetchOnSaleProducts = createAsyncThunk(
 
 export const fetchProducts = createAsyncThunk(
   'products/fetchProducts',
-  async (_, {getState}) => {
+  async (page =1, {getState}) => {
         // Access the current state to get the languageId
         const state = getState();
         const languageId = state.appConfig.languageCode;
         const currencyId = state.appConfig.currencyCode;
+    console.log('state', page)
+
     const response = await wooAPI.get('products/', {
         lang: languageId,
         currency: currencyId,
         status: 'publish',
-        page: 1,
+        page: page,
         category: ''
     })
-    return response.data;
+    console.log('response', response)
+    return response;
   }
 ) 
 
@@ -78,6 +81,7 @@ export const fetchRelatedProducts = createAsyncThunk(
     const state = getState();
     const languageId = state.appConfig.languageCode;
     const currencyId = state.appConfig.currencyCode;
+    console.log('state', state)
       const response = await wooAPI.get('products/', {
         lang: languageId,
         currency: currencyId,

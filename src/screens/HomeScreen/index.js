@@ -20,10 +20,10 @@ import brandingStyles from 'clientBrandingStyles';
 import {useDispatch, useSelector} from 'react-redux';
 
 // Actions for fetching data from API
-import {fetchCategories} from '../../features/CategoriesData/categoryActions';
+import {fetchCategories} from 'store/CategoriesData/categoryActions';
 
 // Selectors to retrieve data from Redux store
-import {getCategories} from '../../features/GetStateData/data';
+import {getCategories} from 'store/GetStateData/data';
 
 // Components for rendering UI
 import 

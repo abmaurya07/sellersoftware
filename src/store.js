@@ -8,13 +8,13 @@ import { persistStore, persistReducer, FLUSH,
 import AsyncStorage from '@react-native-async-storage/async-storage';
 // Import your reducers
 import { configureStore } from '@reduxjs/toolkit';
-import bannerReducer from './features/BannerData/bannerSlice';
-import appConfigReducer from './features/appConfig/appConfigSlice';
-import categoryReducer from './features/CategoriesData/categorySlice';
-import productReducer from './features/ProductsData/productsSlice';
-import currencyReducer from './features/CurrencyData/currencySlice';
-import userReducer from './features/UserData/userSlice';
-import appSettingsFromPluginReducer from './features/AppSettingsFromPlugin/appSettingsFromPluginSlice';
+import bannerReducer from 'store/BannerData/bannerSlice';
+import appConfigReducer from 'store/appConfig/appConfigSlice';
+import categoryReducer from 'store/CategoriesData/categorySlice';
+import productReducer from 'store/ProductsData/productsSlice';
+import currencyReducer from 'store/CurrencyData/currencySlice';
+import userReducer from 'store/UserData/userSlice';
+import appSettingsFromPluginReducer from 'store/AppSettingsFromPlugin/appSettingsFromPluginSlice';
 
 // Create a persist config for the reducers
 const bannersPersistConfig = {
@@ -27,6 +27,7 @@ const appConfigPersistConfig = {
   key: 'appConfig',
   storage: AsyncStorage,
   whitelist: [
+    'storename',
     'themeStyle',
     'appTextStyle',
     'appDarkTheme',
@@ -46,7 +47,7 @@ const categoryPersistConfig = {
 const productPersistConfig = {
   key: 'products',
   storage: AsyncStorage,
-  blacklist: [
+  whitelist: [
     'products', 'relatedProducts', 'cartRelatedProducts',
     'topSellerProducts', 'featuredProducts', 'onSaleProducts']  // Will not be persisted
 }

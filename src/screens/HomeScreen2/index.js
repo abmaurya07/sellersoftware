@@ -10,6 +10,7 @@ import {
   Button,
   useColorScheme,
   StatusBar,
+  ScrollView,
 } from 'react-native';
 
 // Stylesheets
@@ -20,21 +21,23 @@ import brandingStyles from 'clientBrandingStyles';
 import {useDispatch, useSelector} from 'react-redux';
 
 // Actions for fetching data from API
-import {fetchCategories} from '../../features/CategoriesData/categoryActions';
+import {fetchCategories} from 'store/CategoriesData/categoryActions';
 
 // Selectors to retrieve data from Redux store
-import {getCategories} from '../../features/GetStateData/data';
+import {getCategories} from 'store/GetStateData/data';
 
 // Components for rendering UI
 import 
 {
-  HomeScreenHeader,
-  Banner
+  HomeScreenHeaderComponent,
+  Banner,
+  StoreDetailsComponent,
+  TabSectionComponent,
+  CategoriesComponent
 } from './components';
 
 // Temporary imports during development
 import Logo from 'assets/images/Logo.png';
-import CategoryComponent from './components/Caregory';
 // import TearCarousel from '../../components/Carousels/Tear';
 
 const HomeScreen = ({navigation}) => {
@@ -45,17 +48,23 @@ const HomeScreen = ({navigation}) => {
 
   return (
     <View style={[homeScreenStyles.container, brandingStyles.container]}>
+      <ScrollView>
+
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={brandingStyles.homeHeader.backgroundColor}
       />
 
-      <HomeScreenHeader navigation={navigation} />
-
+      <HomeScreenHeaderComponent navigation={navigation} />
+    <StoreDetailsComponent
+           profileImageUrl="https://app.sellerssoftware.com/wp-content/uploads/2018/05/ground_idaho_03.jpg"
+           followersCount="1.2M"
+           bio="🌟 Aspiring influencer | 📸 Photography lover | 🌍 Travel enthusiast"
+           />
      
-       <CategoryComponent />
-    
-
+       <CategoriesComponent />
+      <TabSectionComponent />
+</ ScrollView>
     </View>
   );
 };

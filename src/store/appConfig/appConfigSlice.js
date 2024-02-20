@@ -4,6 +4,7 @@ import { getLanguage } from '../../Languages/Languages';
 import { I18nManager } from 'react-native';
 
 const initialState = {
+    storeName: 'Shoe Collection', 
     counter: 0,
     isloading: true,
     themeStyle: appTextStyle.isDarkMode ? appDarkTheme : appLightTheme,

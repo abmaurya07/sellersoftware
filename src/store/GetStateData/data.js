@@ -1,5 +1,6 @@
-const getProducts = state =>  state.products.products.items
+const getProducts = state =>  state.products.products
 const getTopSellerProducts = state => state.products.topSellerProducts.items
+const getStoreDetails = state => state.appConfig
 const getAppSettingsFromPlugin = state => state.appSettingsFromPlugin.items.settings
 const getCartProducts = (state) => state.cart.items
 const getBanners = state => state.banners
@@ -32,5 +33,6 @@ export {
     getCurrency,
     getLanguageCode,
     getVendorsArray,
+    getStoreDetails
 
 }

@@ -1,5 +1,7 @@
 import { StyleSheet } from "react-native";
 
+//What to Change?
+//For Store Title Color use title class
 
 const styles = StyleSheet.create({
     container: {
@@ -20,11 +22,6 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       alignItems: 'center',
     },
-
-    storeName:{
-       fontWeight: 'bold',
-       fontSize:18
-    },
     logo: {
       width: 35,
       height: 30,
@@ -34,9 +31,8 @@ const styles = StyleSheet.create({
     },
     icon: {
       marginRight: 12, // Add spacing between icons
-      textShadowColor: 'rgba(0, 0, 0, 0.75)',
-      textShadowOffset: { width: 0, height: 1 },
-      textShadowRadius: 1,
+      fontSize: 22,
+      color: '#000',
     },
     searchContainer: {
       flexDirection: 'row',
@@ -53,7 +49,7 @@ const styles = StyleSheet.create({
       paddingHorizontal: 10,
     },
     title: {
-      fontSize: 24,
+      fontSize: 18,
       fontWeight: 'bold',
       color: '#000',
       marginVertical: 16,

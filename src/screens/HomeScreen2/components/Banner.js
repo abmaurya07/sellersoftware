@@ -4,8 +4,8 @@ import BannerImageSkeleton from '../../../Skeletons/BannerImageSkeleton';
 // import Carousel, { Pagination } from 'react-native-snap-carousel';
 import SimpleCarousel from '../../../components/Carousels/SimpleCarousel';
 import { useDispatch, useSelector } from 'react-redux';
-import { getBanners } from '../../../features/GetStateData/data';
-import { fetchBanners } from '../../../features/BannerData/bannersActions';
+import { getBanners } from 'store/GetStateData/data';
+import { fetchBanners } from 'store/BannerData/bannersActions';
 
 //Temporary imports during developement
 import Logo from 'assets/images/Logo.png';

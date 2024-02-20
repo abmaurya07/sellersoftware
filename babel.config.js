@@ -11,6 +11,8 @@ module.exports = {
           "utils": "./src/utils",
           "clientBrandingStyles": "./src/Theme/ClientBrandingStyles",
           "assets": "./src/assets",
+          "store": "./src/store",
+          "getData": "./src/store/GetStateData"
           // Add more aliases here
         }
       }

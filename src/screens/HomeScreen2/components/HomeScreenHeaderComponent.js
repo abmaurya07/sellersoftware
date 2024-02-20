@@ -5,12 +5,18 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Logo from 'assets/images/FavIcon.png'
 import brandingStyles from 'clientBrandingStyles'
 import homeScreenStyles from '../HomeScreenStyles'
-const HomeScreenHeader = ({navigation}) => {
+import { useSelector } from 'react-redux';
+import { getStoreDetails } from 'store/GetStateData/data';
+
+const HomeScreenHeaderComponent = ({navigation}) => {
+
+   const {storeName} = useSelector(getStoreDetails)
+   console.log('storename', storeName)
     return (
       <View style={[brandingStyles.homeHeader,homeScreenStyles.header]}>
       <View style={homeScreenStyles.leftHeader}>
       
-       <Text style={homeScreenStyles.storeName}> Shoe Collections</Text>
+       <Text style={homeScreenStyles.title}> {storeName}</Text>
      
       </View>
       <View style={homeScreenStyles.rightHeader}>
@@ -28,4 +34,4 @@ const HomeScreenHeader = ({navigation}) => {
     )
   }
 
-  export default HomeScreenHeader;
+  export default HomeScreenHeaderComponent;

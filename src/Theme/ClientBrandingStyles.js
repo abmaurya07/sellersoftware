@@ -6,10 +6,10 @@ const styles =  StyleSheet.create({
         color: 'rgb(0,0,0)', // black text
     },
     homeHeader: {
-        color: '#000', // white text
+        color: '#000', // black text
     },
     homeIcon: {
-        color: '#000', // white icons
+        color: '#000', // black icons
     },
 
     //Bache hue
