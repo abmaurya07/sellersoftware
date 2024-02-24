@@ -6,13 +6,13 @@ module.exports = {
       {
         "root": ["./src"],
         "alias": {
-          "components": "./src/components",
-          "screens": "./src/screens",
-          "utils": "./src/utils",
-          "clientBrandingStyles": "./src/Theme/ClientBrandingStyles",
-          "assets": "./src/assets",
-          "store": "./src/store",
-          "getData": "./src/store/GetStateData"
+          "components": "./sellers-app/src/components",
+          "screens": "./sellers-app/src/screens",
+          "utils": "./sellers-app/src/utils",
+          "clientBrandingStyles": "./sellers-app/src/Theme/ClientBrandingStyles",
+          "assets": "./sellers-app/src/assets",
+          "store": "./sellers-app/src/store",
+          "getData": "./sellers-app/src/store/GetStateData"
           // Add more aliases here
         }
       }
