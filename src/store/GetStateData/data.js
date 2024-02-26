@@ -12,6 +12,7 @@ const getCategories = state => state.categories
 const getfeaturedProductsArray = state => state.productsData.featuredProducts
 const getonSaleProductsArray = state => state.productsData.onSaleProducts
 const getCurrency = state => state.appConfig.currencyCode
+const getCurrencySymbol = state => state.appConfig.currencySymbol
 const getLanguageCode = state => state.appConfig.languageCode
 const getVendorsArray = state => state.vendorData.vendorsArray
 
@@ -21,7 +22,7 @@ export {
     getTopSellerProducts,
     getAppSettingsFromPlugin,
     getCartProducts,
-
+    getCurrencySymbol,
     getThemeStyle,
     getLanguage,
     getAppinPro,

@@ -49,8 +49,7 @@ const styles = StyleSheet.create({
   image: {
     width: '100%', // specify a width
     height: '100%', // specify a height
-    resizeMode: 'contain',
-     
+    resizeMode: 'contain'     
   },
   modalView: {
     margin: 20,
@@ -100,6 +99,32 @@ const styles = StyleSheet.create({
   inactiveDot: {
     backgroundColor: '#999', // Inactive dot color
   },
+  salePriceText: {
+    fontWeight: 'bold',
+    fontSize: 16, 
+    marginVertical: 10,
+    color: '#000'
+
+  },
+  regularPriceText: {
+    fontWeight: 'bold',
+    fontSize: 14, 
+    marginVertical: 10,
+    textDecorationLine: 'line-through',
+
+  },
+  nameText: {
+    fontWeight: 'bold',
+    fontSize: 16, 
+    marginVertical: 10,
+    color: '#000'
+  },
+  viewReviewsText: {
+    color: 'blue',
+    marginTop: 10
+  }
+
+  
 
 });
 

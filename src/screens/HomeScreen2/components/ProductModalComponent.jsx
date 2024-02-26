@@ -20,7 +20,7 @@ import {useSelector} from 'react-redux';
 
 
 // Selectors to retrieve data from Redux store
-import {getStoreDetails} from 'store/GetStateData/data';
+import {getStoreDetails, getCurrencySymbol} from 'store/GetStateData/data';
 
 // Component for Rendering UI
 import PaginationItem from 'components/PaginationItem';
@@ -30,12 +30,16 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 import DoubleClick from 'react-native-double-tap';
 
+
 const ProductModal = ({product, onClose}) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const progressValue = useSharedValue(0);
   const {storeName} = useSelector(getStoreDetails)
+  const currencySymbol = useSelector(getCurrencySymbol)
   const [showHeart, setShowHeart] = useState(false);
 
+  // State for review modal
+  const [showReviews, setShowReviews] = useState(false);
   const handleDoubleTap = () => {
     console.log('cliccked')
     setShowHeart(true);
@@ -77,7 +81,9 @@ const ProductModal = ({product, onClose}) => {
       animationType="slide"
       transparent={true}
       visible={product !== null}
-      onRequestClose={onClose}>
+      onRequestClose={onClose}
+      
+      >
         <View style={styles.backdrop}>
       <View style={styles.modalView}>
       
@@ -106,18 +112,27 @@ const ProductModal = ({product, onClose}) => {
         onSnapToItem={(index) => setActiveIndex(index)}
         renderItem={({ item }) => {
           return (
-          <DoubleClick singleTap={() => null} doubleTap={handleDoubleTap} delay={100}>
-            <Image source={{uri : item.src}} style={styles.image} />
+            
+              <DoubleClick singleTap={() => null} doubleTap={handleDoubleTap} delay={300}>
+            <Image 
+            source={{uri : item.src}} 
+            style={styles.image}
+            onLongPress={() => {}} 
+            delayLongPress={-1}
+            onPress={() => {}}
+
+
+            />
             {showHeart && (
-          <MaterialCommunityIcons
-            name="heart"
-            size={100}
-            color="red"
-            style={styles.heartIcon}
-          />
-        )}
-          </DoubleClick>
-          
+              <MaterialCommunityIcons
+              name="heart"
+              size={100}
+              color="red"
+              style={styles.heartIcon}
+              />
+              )}
+            </DoubleClick>
+            
           )
         }}
       />
@@ -131,14 +146,46 @@ const ProductModal = ({product, onClose}) => {
       <Text>Abhis</Text>
       </View>
 
-        <Text style={styles.modalText}>{product?.price}</Text>
-        
-        <Text style={styles.modalText}>{product?.regular_price}</Text>
-        
-        <Text style={styles.modalText}>{product?.sale_price}</Text>
+      <View style={{alignItems:'start', width:'100%'}}>
+      
+      <View style={{flexDirection:'row', gap:5, alignItems:'center'}}>
+      <Text style={styles.salePriceText}>
+          {currencySymbol}{product?.sale_price}
+        </Text>
+        <Text style={styles.regularPriceText}>
+          {currencySymbol}{product?.regular_price}
+        </Text>
+        </View>
+
+        <Text style={styles.nameText}>
+          {product?.name}  
+        </Text>
+
+        <TouchableOpacity 
+          onPress={() => setShowReviews(true)}
+        >
+          <Text style={styles.viewReviewsText}>View all reviews</Text>
+          
+        </TouchableOpacity>
+        <ReviewModal 
+          visible={showReviews}
+          onClose={() => setShowReviews(false)}
+        />
+
+        </View>
+
+
+
+
+
+
+
         <TouchableOpacity
           style={styles.addToCartButton}
           onPress={() => handleAddToCart(product)}>
+
+
+
           <Text style={styles.addToCartButtonText}>Add to Cart</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.closeButton} onPress={onClose}>
@@ -151,3 +198,22 @@ const ProductModal = ({product, onClose}) => {
 };
 
 export default ProductModal;
+
+// Review Modal
+const ReviewModal = ({visible, onClose}) => {
+
+  return (
+    <Modal 
+      visible={visible}
+      animationType="slide"
+      onRequestClose={onClose}
+    >
+      <View>
+       <Text>
+         5 Star
+        </Text>  
+       
+      </View>
+    </Modal>
+  )
+}

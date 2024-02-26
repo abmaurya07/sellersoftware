@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   Image,
   FlatList,
+  Text,
 } from 'react-native';
 
 // Stylesheets
@@ -13,6 +14,7 @@ import styles from './ProductGridStyles'
 // Component for Rendering UI
 
  const ProductGridItem = ({ item, onPress }) =>{
+
   return (
     <TouchableOpacity 
     style={styles.gridItem} 
