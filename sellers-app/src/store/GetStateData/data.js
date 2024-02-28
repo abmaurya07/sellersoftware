@@ -15,6 +15,7 @@ const getCurrency = state => state.appConfig.currencyCode
 const getLanguageCode = state => state.appConfig.languageCode
 const getVendorsArray = state => state.vendorData.vendorsArray
 const getUser = state => state.user
+const getOrders = state => state.orders
 
 
 export {
@@ -23,7 +24,7 @@ export {
     getAppSettingsFromPlugin,
     getCartProducts,
     getUser,
-    
+    getOrders,
     getThemeStyle,
     getLanguage,
     getAppinPro,

@@ -14,6 +14,7 @@ import categoryReducer from 'store/CategoriesData/categorySlice';
 import productReducer from 'store/ProductsData/productsSlice';
 import currencyReducer from 'store/CurrencyData/currencySlice';
 import userReducer from 'store/UserData/userSlice';
+import ordersReducer from 'store/OrdersData/ordersSlice';
 import appSettingsFromPluginReducer from 'store/AppSettingsFromPlugin/appSettingsFromPluginSlice';
 
 // Create a persist config for the reducers
@@ -70,6 +71,12 @@ const appSettingsFromPluginConfig = {
   whitelist: ['items']
 }
 
+const ordersPersistConfig = {
+  key: 'orders',
+  storage: AsyncStorage,
+  whitelist: ['items']
+}
+
 
 
 // Create a persisted reducer 
@@ -109,6 +116,10 @@ const persistedAppSettingsFromPluginReducer = persistReducer(
   appSettingsFromPluginReducer
 )
 
+const persistedOrdersReducer = persistReducer(
+  ordersPersistConfig,
+  ordersReducer
+)
 
 const store = configureStore({
   reducer: {
@@ -118,7 +129,8 @@ const store = configureStore({
     products: persistedProductReducer,
     currency: persistedCurrencyReducer,
     user: persistedUserReducer,
-    appSettingsFromPlugin: persistedAppSettingsFromPluginReducer
+    appSettingsFromPlugin: persistedAppSettingsFromPluginReducer,
+    orders: persistedOrdersReducer
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware(
     {

@@ -9,10 +9,24 @@ import UserScreen from '../screens/UserScreen';
 import CartScreen from '../screens/CartScreen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import LoginScreen from '../screens/LoginScreen/LoginScreen';
+import { OrderScreen } from '../screens';
+import OrderDetailsScreen from '../screens/OrdersScreen/components/OrderDetailsScreen'
 
 const Stack = createNativeStackNavigator();
 
 const Tab = createBottomTabNavigator();
+const OrdersStack = createNativeStackNavigator();
+
+function Orders() {
+  return (
+    <OrdersStack.Navigator>
+
+    <OrdersStack.Screen name="Orders" component={OrderScreen} />
+    <OrdersStack.Screen name='OrderDetails' component={OrderDetailsScreen} />
+    </OrdersStack.Navigator>
+  );
+}
+
 
 const AppNavigator = () => {
   const renderTabBarIcon = (route, color) => {
@@ -57,15 +71,19 @@ const AppNavigator = () => {
         })}
 
 >       
-        <Tab.Screen name="Login" component={LoginScreen} />
+      <Tab.Screen name="Orders" component={Orders} />
         <Tab.Screen name="Home" component={HomeScreen2} />
         <Tab.Screen name="Categories" component={CategoryScreen} />
         <Tab.Screen name="Wishlist" component={WishListScreen} />
         <Tab.Screen name="Cart" component={CartScreen} />
         <Tab.Screen name="Me" component={UserScreen} />
       </Tab.Navigator>
+   
     </NavigationContainer>
+
   );
 };
 
 export default AppNavigator;
+
+
