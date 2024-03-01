@@ -12,7 +12,8 @@ module.exports = {
           "clientBrandingStyles": "./sellers-app/src/Theme/ClientBrandingStyles",
           "assets": "./sellers-app/src/assets",
           "store": "./sellers-app/src/store",
-          "getData": "./sellers-app/src/store/GetStateData"
+          "getData": "./sellers-app/src/store/GetStateData",
+          "ui-components": "./sellers-app/src/ui-components"
           // Add more aliases here
         }
       }

@@ -10,7 +10,7 @@ import CartScreen from '../screens/CartScreen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import LoginScreen from '../screens/LoginScreen/LoginScreen';
 import { OrderScreen } from '../screens';
-import OrderDetailsScreen from '../screens/OrdersScreen/components/OrderDetailsScreen'
+import OrderDetailsScreen from '../screens/OrderDetailsScreen'
 
 const Stack = createNativeStackNavigator();
 

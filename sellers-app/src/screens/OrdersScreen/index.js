@@ -12,6 +12,7 @@ import {
   StatusBar,
 } from 'react-native';
 
+
 // Stylesheets
 
 // Redux hooks and methods for state management
@@ -32,7 +33,7 @@ import { FlatList } from 'react-native';
 
 const OrderScreen = ({navigation}) => {
   const {items, status}= useSelector(getOrders);
-
+  console.log('status', status)
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchAllOrders());
