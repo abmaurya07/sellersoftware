@@ -11,11 +11,23 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import LoginScreen from '../screens/LoginScreen/LoginScreen';
 import { OrderScreen } from '../screens';
 import OrderDetailsScreen from '../screens/OrderDetailsScreen'
+import ProductUploadScreen from '../screens/ProductUploadScreen';
 
 const Stack = createNativeStackNavigator();
 
 const Tab = createBottomTabNavigator();
 const OrdersStack = createNativeStackNavigator();
+const ProductStack = createNativeStackNavigator();
+
+
+function Products() {
+  return (
+    <ProductStack.Navigator>
+
+    <ProductStack.Screen name="ProductUpload" component={ProductUploadScreen} />
+    </ProductStack.Navigator>
+  );
+}
 
 function Orders() {
   return (
@@ -71,7 +83,8 @@ const AppNavigator = () => {
         })}
 
 >       
-      <Tab.Screen name="Orders" component={Orders} />
+        <Tab.Screen name="Products"  component = {Products} />
+        <Tab.Screen name="Orders" component={Orders} />
         <Tab.Screen name="Home" component={HomeScreen2} />
         <Tab.Screen name="Categories" component={CategoryScreen} />
         <Tab.Screen name="Wishlist" component={WishListScreen} />

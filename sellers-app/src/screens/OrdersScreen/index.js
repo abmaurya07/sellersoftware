@@ -10,6 +10,7 @@ import {
   Button,
   useColorScheme,
   StatusBar,
+  RefreshControl,
 } from 'react-native';
 
 
@@ -24,6 +25,7 @@ import {fetchAllOrders} from 'store/OrdersData/ordersActions';
 // Selectors to retrieve data from Redux store
 import {getOrders} from 'store/GetStateData/data';
 import { FlatList } from 'react-native';
+import { getProducts } from '../../store/GetStateData/data';
 
 
 
@@ -33,11 +35,17 @@ import { FlatList } from 'react-native';
 
 const OrderScreen = ({navigation}) => {
   const {items, status}= useSelector(getOrders);
+  const [loadMore, setLoadMore] = useState(false)
   console.log('status', status)
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchAllOrders());
   }, [dispatch]);
+
+  const tonRefresh = () => {
+    dispatch(fetchAllOrders());
+
+  }
 
   const renderItem = ({item}) => (
     <TouchableOpacity onPress={() => navigation.navigate('OrderDetails', {order: item})}>
@@ -62,7 +70,10 @@ const OrderScreen = ({navigation}) => {
 
   if (status === 'failed') {
     return (
-      <View >
+      <View>
+                <RefreshControl
+          onRefresh={tonRefresh}
+        />
         <Text>Error Fetching Data</Text>
       </View>
     );
@@ -74,6 +85,13 @@ const OrderScreen = ({navigation}) => {
       data={items}
       keyExtractor={item => item.id.toString()}
       renderItem={renderItem}
+      refreshControl={
+        <RefreshControl
+          refreshing={status === 'loading'}
+          onRefresh={tonRefresh}
+        />
+      }
+
     />
   );
   }

@@ -6,7 +6,7 @@ import {
 const initialState = {
  
     items: [],
-    status: 'idle'
+    status: 'idle',
 
 
 }
@@ -27,16 +27,11 @@ const orderSlice = createSlice({
          console.log('Products-> ', Orders)
    
          state.status = 'succeeded';
-         state.items = Orders
+         state.items = [...state.items, ...Orders]
         })
         .addCase(fetchAllOrders.rejected, (state, action) => {
           state.status = 'failed';
         })
-
-
-
-
-
     }
 
 });
