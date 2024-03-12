@@ -19,17 +19,21 @@ const categorySlice = createSlice({
         })
         .addCase(fetchCategories.fulfilled, (state, action) => 
         {
-           console.log('is it fulfilled?', action.payload)
-           const categories = action.payload
-           .filter(category => category.name !== 'Uncategorized') // Filter out 'Uncategorized'
-           .map(category => ({
-             id: category.id,
-             name: category.name,
-             image: category.image,
-           }));
-         
-          console.log('Categories-> ', categories)
-    
+
+          const data = action.payload
+           
+         const categories = data.name.map((name, index) => {
+
+          const image = 'https:' + data.image[index].replace(/["']/g, "");
+            return {
+              id: index,
+              name, 
+              image: image
+            };
+          });
+
+          console.log('categories', categories)
+
           state.status = 'succeeded';
           state.items = categories
         })

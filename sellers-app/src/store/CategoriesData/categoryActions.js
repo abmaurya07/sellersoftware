@@ -4,9 +4,12 @@ import {wooAPI} from '../../api/api';
 export const fetchCategories = createAsyncThunk(
   'categories/fetchCategories',
   async () => {
-    const response = await wooAPI.get('products/categories');
+    // const response = await wooAPI.get('products/categories');
+    const response = await fetch('https://arboglobal.net/version-test/api/1.1/wf/get_categories').then(res => res.json())
 
-    return response;
+
+
+    return response.response
   },
 );
 

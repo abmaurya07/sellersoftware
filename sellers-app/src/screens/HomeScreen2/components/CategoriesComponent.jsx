@@ -40,7 +40,7 @@ const CategoriesComponent = ({ navigation }) => {
               <View style={styles.categoryItem}>
                 {category.image && (
                   <Image
-                    source={{ uri: category.image.src }}
+                    source={{ uri: category.image }}
                     style={styles.categoryImage}
                   />
                 )}

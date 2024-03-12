@@ -63,7 +63,7 @@ const HomeScreen = ({navigation}) => {
            />
      
        <CategoriesComponent />
-      <TabSectionComponent />
+      {/* <TabSectionComponent /> */}
 </ ScrollView>
     </View>
   );
