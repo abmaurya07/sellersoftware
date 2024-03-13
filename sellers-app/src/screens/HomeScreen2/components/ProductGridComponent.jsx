@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   Image,
   FlatList,
+  Text,
 } from 'react-native';
 
 // Stylesheets
@@ -18,10 +19,16 @@ import styles from './ProductGridStyles'
     style={styles.gridItem} 
     onPress={() => onPress(item)}
   >
-    <Image 
-      source={{ uri: item.images[0].src }}
-      style={styles.productImage} 
+    {
+  item.images.length > 0 ? 
+    <Image  
+      source={{uri: item.images[0].src}}
+      style={styles.productImage}
+      alt='Product Image here'
     />
+  :
+    <Text>No image available</Text>  
+}
   </TouchableOpacity>
   );
 }

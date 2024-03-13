@@ -18,7 +18,6 @@ export const fetchAllOrders = createAsyncThunk(
         currency: currencyId,
         page: page,
     })
-    console.log('response', response[0].line_items)
     return response;
   }
 ) 
